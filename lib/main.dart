@@ -1,11 +1,15 @@
 // import 'dart:html';
 
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:wtwetwgfkdfndfbnd/firebase_options.dart';
+import 'package:wtwetwgfkdfndfbnd/src/pages/root.dart';
 
-import 'src/pages/components/app.dart';
-
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  // 앱이 ios, android에 맞게 적용되도록 하는 코드
   runApp(const MyApp());
 }
 
@@ -15,17 +19,8 @@ class MyApp extends StatelessWidget {
 // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-      // title: '오운완',
-      // theme: ThemeData(
-      //     primarySwatch: Colors.red,
-      //     appBarTheme: const AppBarTheme(
-      //         backgroundColor: Colors.black,
-      //         titleTextStyle: TextStyle(
-      //           fontSize: 20,
-      //           color: Colors.white,
-      //         ))),
-      home: const App(),
+    return const GetMaterialApp(
+      home: Root(),
     );
   }
 }

@@ -1,84 +1,99 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:wtwetwgfkdfndfbnd/src/components/Live_notice.dart';
+import 'package:wtwetwgfkdfndfbnd/src/controller/bottom_nav_controller.dart';
 import 'package:wtwetwgfkdfndfbnd/src/pages/notice_scroll.dart';
+import 'package:wtwetwgfkdfndfbnd/src/pages/thred.dart';
 
-class App extends StatefulWidget {
+class App extends GetView<BottomNavController> {
   const App({super.key});
 
   @override
-  State<App> createState() => _AppState();
-}
-
-class _AppState extends State<App> {
-  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        backgroundColor: Colors.black,
-        appBar: AppBar(
+    return Obx(() => Scaffold(
           backgroundColor: Colors.black,
-          title: Row(
-            children: [
-              Icon(Icons.circle_outlined),
-              SizedBox(width: 10),
-              Text('오운완')
-            ],
-            mainAxisAlignment: MainAxisAlignment.center,
+          appBar: AppBar(
+            backgroundColor: Colors.black,
+            title: Row(
+              children: [
+                Icon(Icons.circle_outlined),
+                SizedBox(width: 10),
+                Text('오운완')
+              ],
+              mainAxisAlignment: MainAxisAlignment.center,
+            ),
+            // centerTitle: mounted,
           ),
-          centerTitle: mounted,
-        ),
-        body: SingleChildScrollView(
-          child: Column(
+          body: IndexedStack(
+            index: controller.pageIndex.value,
             children: [
+              FirstPage(),
               Container(
-                padding: EdgeInsets.all(6),
-                decoration: BoxDecoration(
-                    // boxShadow: BoxShadow(10),
-                    border: Border.all(color: Colors.red)),
-                alignment: Alignment.center,
-                // color: Colors.red[200],
-                child: Text(
-                  '오늘 운동 완료자 : 389명',
-                  style: TextStyle(
-                      color: Colors.white, fontSize: 18, fontFamily: 'Schyler'),
+                child: Center(
+                  child: Text(
+                    'search',
+                    style: TextStyle(color: Colors.red),
+                  ),
                 ),
               ),
-              NoticePage(),
-              LiveNotice(),
+              Container(
+                child: Center(
+                  child: Text(
+                    'upload',
+                    style: TextStyle(color: Colors.red),
+                  ),
+                ),
+              ),
+              Container(
+                child: Center(
+                  child: Text(
+                    'activity',
+                    style: TextStyle(color: Colors.red),
+                  ),
+                ),
+              ),
+              Container(
+                child: Center(
+                  child: Text(
+                    'mypage',
+                    style: TextStyle(color: Colors.red),
+                  ),
+                ),
+              ),
             ],
           ),
-        ));
-    bottomNavigationBar:
-    BottomAppBar(
-      child: Container(
-        height: 50,
-        color: Colors.black,
-        child: Row(children: [
-          Icon(
-            Icons.phone,
-            color: Colors.white,
-          ),
-          Icon(
-            Icons.phone,
-            color: Colors.white,
-          ),
-          Icon(
-            Icons.phone,
-            color: Colors.white,
-          ),
-          Icon(
-            Icons.phone,
-            color: Colors.white,
-          ),
-          Icon(
-            Icons.phone,
-            color: Colors.white,
-          ),
-        ], mainAxisAlignment: MainAxisAlignment.spaceEvenly),
-      ),
-    )
+          bottomNavigationBar: BottomNavigationBar(
+            type: BottomNavigationBarType.fixed,
+            showSelectedLabels: false,
+            showUnselectedLabels: false,
+            currentIndex: controller.pageIndex.value,
+            elevation: 0,
+            onTap: controller.changeBottomNav,
+            items: [
+              BottomNavigationBarItem(
+                  icon: Icon(Icons.circle_outlined),
+                  activeIcon: Icon(Icons.circle_rounded),
+                  label: 'home'),
+              BottomNavigationBarItem(
+                  icon: Icon(Icons.circle_outlined),
+                  activeIcon: Icon(Icons.circle_rounded),
+                  label: 'home'),
+              BottomNavigationBarItem(
+                  icon: Icon(Icons.circle_outlined),
+                  activeIcon: Icon(Icons.circle_rounded),
+                  label: 'home'),
+              BottomNavigationBarItem(
+                  icon: Icon(Icons.circle_outlined),
+                  activeIcon: Icon(Icons.circle_rounded),
+                  label: 'home'),
+              BottomNavigationBarItem(
+                  icon: Icon(Icons.circle_outlined),
+                  activeIcon: Icon(Icons.circle_rounded),
+                  label: 'home'),
+            ],
 
-        // bottomNavigationBar:
-        // BottomNavigationBar(items: [BottomNavigationBarItem(label: 'home')]),
-        ;
+            //  mainAxisAlignment: MainAxisAlignment.spaceEvenly),
+          ),
+        ));
   }
 }

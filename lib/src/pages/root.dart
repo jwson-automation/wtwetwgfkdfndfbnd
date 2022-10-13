@@ -15,7 +15,7 @@ class Root extends StatelessWidget {
           // 내부 파이어베이스 유저정보 조회 with user.data.uid
           return App();
         } else {
-          return Login();
+          return App();
         }
       },
     );

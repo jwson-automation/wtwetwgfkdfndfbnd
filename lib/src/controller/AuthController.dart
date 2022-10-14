@@ -1,8 +1,12 @@
-import 'package:get/get_state_manager/get_state_manager.dart';
-import 'package:wtwetwgfkdfndfbnd/src/pages/Login.dart';
+import 'package:get/get.dart';
+import 'package:wtwetwgfkdfndfbnd/src/model/ounwan_user.dart';
+import 'package:wtwetwgfkdfndfbnd/src/repository/user_repository.dart';
 
 class AuthController extends GetxController {
-  loginUser(String uid) async {
+  Future<OUser?> loginUser(String uid) async {
     //db 조회
+    var userData = await UserRepository.loginUserByUid(uid);
+    print(userData);
+    return userData;
   }
 }

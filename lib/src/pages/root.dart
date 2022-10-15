@@ -1,11 +1,11 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:wtwetwgfkdfndfbnd/src/controller/AuthController.dart';
+import 'package:wtwetwgfkdfndfbnd/src/controller/auth_controller.dart';
 import 'package:wtwetwgfkdfndfbnd/src/model/ounwan_user.dart';
-import 'package:wtwetwgfkdfndfbnd/src/pages/Login.dart';
+import 'package:wtwetwgfkdfndfbnd/src/pages/login.dart';
 import 'package:wtwetwgfkdfndfbnd/app.dart';
-import 'package:wtwetwgfkdfndfbnd/src/pages/SignupPage.dart';
+import 'package:wtwetwgfkdfndfbnd/src/pages/sign_up_page.dart';
 
 class Root extends GetView<AuthController> {
   const Root({super.key});
@@ -23,7 +23,9 @@ class Root extends GetView<AuthController> {
                   print('로그인 성공!');
                   return const App();
                 } else {
-                  return const SignupPage();
+                  return Obx(() => controller.user.value.uid != null
+                      ? const App() // 일경우에는 '?'
+                      : SignupPage(uid: user.data!.uid)); // 아닐경우에는 ':'
                 }
                 // return const App();
               });

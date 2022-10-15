@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:wtwetwgfkdfndfbnd/src/components/Live_notice.dart';
 import 'package:wtwetwgfkdfndfbnd/src/controller/bottom_nav_controller.dart';
-import 'package:wtwetwgfkdfndfbnd/src/pages/notice_scroll.dart';
-import 'package:wtwetwgfkdfndfbnd/src/pages/thred.dart';
+import 'package:wtwetwgfkdfndfbnd/src/pages/first_page.dart';
+import 'package:wtwetwgfkdfndfbnd/src/pages/my_page.dart';
 
 class App extends GetView<BottomNavController> {
   const App({super.key});
@@ -31,14 +30,6 @@ class App extends GetView<BottomNavController> {
               Container(
                 child: Center(
                   child: Text(
-                    'search',
-                    style: TextStyle(color: Colors.red),
-                  ),
-                ),
-              ),
-              Container(
-                child: Center(
-                  child: Text(
                     'upload',
                     style: TextStyle(color: Colors.red),
                   ),
@@ -60,6 +51,7 @@ class App extends GetView<BottomNavController> {
                   ),
                 ),
               ),
+              MyPage(),
             ],
           ),
           bottomNavigationBar: BottomNavigationBar(

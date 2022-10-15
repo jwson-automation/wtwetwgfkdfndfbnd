@@ -17,4 +17,13 @@ class UserRepository {
     // firebase cloud 문법!
     // firestore 문법입니다.
   }
+
+  static Future<bool> signup(OUser user) async {
+    try {
+      await FirebaseFirestore.instance.collection('users').add(user.toMap());
+      return true;
+    } catch (e) {
+      return false;
+    }
+  }
 }

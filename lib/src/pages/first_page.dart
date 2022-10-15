@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:wtwetwgfkdfndfbnd/src/components/Live_notice.dart';
-import 'package:wtwetwgfkdfndfbnd/src/pages/notice_scroll.dart';
+import 'package:wtwetwgfkdfndfbnd/src/pages/seperated_feature/notice_scroll.dart';
 
 class FirstPage extends StatelessWidget {
   const FirstPage({super.key});

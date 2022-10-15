@@ -19,4 +19,28 @@ class OUser {
           json['description'] == null ? '' : json['description'] as String,
     );
   }
+
+  Map<String, dynamic> toMap() {
+    return {
+      'uid': uid,
+      'nickname': nickname,
+      'thumbnail': thumbnail,
+      'description': description,
+    };
+  }
+
+  OUser copyWith({
+    String? uid,
+    String? nickname,
+    String? thumbnail,
+    String? description,
+  }) {
+    return OUser(
+      //널이 아니면 바꿔주고, 널이면 그대로 쓴다!
+      uid: uid ?? this.uid,
+      nickname: nickname ?? this.nickname,
+      thumbnail: thumbnail ?? this.thumbnail,
+      description: description ?? this.description,
+    );
+  }
 }

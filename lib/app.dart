@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:wtwetwgfkdfndfbnd/src/controller/bottom_nav_controller.dart';
-import 'package:wtwetwgfkdfndfbnd/src/pages/first_page.dart';
-import 'package:wtwetwgfkdfndfbnd/src/pages/my_page.dart';
+import 'package:wtwetwgfkdfndfbnd/src/pages/2_coupang.dart';
+import 'package:wtwetwgfkdfndfbnd/src/pages/1_first_page.dart';
+import 'package:wtwetwgfkdfndfbnd/src/pages/4_mypage.dart';
+import 'package:wtwetwgfkdfndfbnd/src/pages/3_history.dart';
 
 class App extends GetView<BottomNavController> {
   const App({super.key});
@@ -10,51 +12,19 @@ class App extends GetView<BottomNavController> {
   @override
   Widget build(BuildContext context) {
     return Obx(() => Scaffold(
-          backgroundColor: Colors.black,
-          appBar: AppBar(
-            backgroundColor: Colors.black,
-            title: Row(
-              children: [
-                Icon(Icons.circle_outlined),
-                SizedBox(width: 10),
-                Text('오운완')
-              ],
-              mainAxisAlignment: MainAxisAlignment.center,
-            ),
-            // centerTitle: mounted,
-          ),
+          // backgroundColor: Colors.black,
+
           body: IndexedStack(
             index: controller.pageIndex.value,
             children: [
               FirstPage(),
-              Container(
-                child: Center(
-                  child: Text(
-                    'upload',
-                    style: TextStyle(color: Colors.red),
-                  ),
-                ),
-              ),
-              Container(
-                child: Center(
-                  child: Text(
-                    'activity',
-                    style: TextStyle(color: Colors.red),
-                  ),
-                ),
-              ),
-              Container(
-                child: Center(
-                  child: Text(
-                    'mypage',
-                    style: TextStyle(color: Colors.red),
-                  ),
-                ),
-              ),
+              CoupangPage(),
+              HistoryPage(),
               MyPage(),
             ],
           ),
           bottomNavigationBar: BottomNavigationBar(
+            backgroundColor: Colors.white,
             type: BottomNavigationBarType.fixed,
             showSelectedLabels: false,
             showUnselectedLabels: false,
@@ -62,10 +32,6 @@ class App extends GetView<BottomNavController> {
             elevation: 0,
             onTap: controller.changeBottomNav,
             items: [
-              BottomNavigationBarItem(
-                  icon: Icon(Icons.circle_outlined),
-                  activeIcon: Icon(Icons.circle_rounded),
-                  label: 'home'),
               BottomNavigationBarItem(
                   icon: Icon(Icons.circle_outlined),
                   activeIcon: Icon(Icons.circle_rounded),

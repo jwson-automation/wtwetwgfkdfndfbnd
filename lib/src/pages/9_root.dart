@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:wtwetwgfkdfndfbnd/src/controller/auth_controller.dart';
 import 'package:wtwetwgfkdfndfbnd/src/model/ounwan_user.dart';
-import 'package:wtwetwgfkdfndfbnd/src/pages/login.dart';
+import 'package:wtwetwgfkdfndfbnd/src/pages/7_login.dart';
 import 'package:wtwetwgfkdfndfbnd/app.dart';
-import 'package:wtwetwgfkdfndfbnd/src/pages/sign_up_page.dart';
+import 'package:wtwetwgfkdfndfbnd/src/pages/8_sign_up_page.dart';
 
 class Root extends GetView<AuthController> {
   const Root({super.key});

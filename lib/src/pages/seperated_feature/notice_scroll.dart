@@ -12,19 +12,19 @@ class NoticePage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Flexible(
-              flex: 3,
+              flex: 1,
               child: Container(
                 child: Icon(
                   Icons.circle_outlined,
                   color: Colors.grey[350],
-                  size: 100.0,
+                  size: 20.0,
                 ),
                 // Text('Image'),
                 // color: Colors.red,
               ),
             ),
             Flexible(
-              flex: 7,
+              flex: 9,
               child: Column(
                 children: [
                   Container(
@@ -35,7 +35,7 @@ class NoticePage extends StatelessWidget {
                             // color: Colors.red,
                             )),
                     // color: Colors.blue,
-                    child: Text('오늘 사람들은 평균 48분동안 운동했습니다.',
+                    child: Text('오늘은 100명의 사람들이 운동을 완료했습니다.',
                         textAlign: TextAlign.center,
                         style: TextStyle(
                             color: Colors.white,
@@ -46,24 +46,6 @@ class NoticePage extends StatelessWidget {
                     // color: Colors.blue,
                     height: 3,
                     // child: Text('right'),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      Container(
-                        // color: Colors.blue,
-
-                        child: Text(
-                          'Live',
-                          style: TextStyle(color: Colors.white, fontSize: 20),
-                        ),
-                      ),
-                      SizedBox(width: 5),
-                      Icon(
-                        Icons.circle,
-                        color: Colors.red,
-                      )
-                    ],
                   ),
                 ],
               ),

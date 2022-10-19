@@ -16,8 +16,8 @@ class AuthController extends GetxController {
     //db 조회
     var userData = await UserRepository.loginUserByUid(uid);
     if (userData != null) {
-      InitBinding.additionalBinding();
       user(userData);
+      InitBinding.additionalBinding();
     }
     ;
     return userData;

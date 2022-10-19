@@ -5,6 +5,7 @@ import 'package:wtwetwgfkdfndfbnd/src/pages/2_coupang.dart';
 import 'package:wtwetwgfkdfndfbnd/src/pages/1_first_page.dart';
 import 'package:wtwetwgfkdfndfbnd/src/pages/4_mypage.dart';
 import 'package:wtwetwgfkdfndfbnd/src/pages/3_history.dart';
+import 'package:wtwetwgfkdfndfbnd/src/pages/5_upload.dart';
 
 class App extends GetView<BottomNavController> {
   const App({super.key});
@@ -19,6 +20,9 @@ class App extends GetView<BottomNavController> {
             children: [
               FirstPage(),
               CoupangPage(),
+              Container(
+                color: Colors.white,
+              ),
               HistoryPage(),
               MyPage(),
             ],
@@ -32,6 +36,10 @@ class App extends GetView<BottomNavController> {
             elevation: 0,
             onTap: controller.changeBottomNav,
             items: [
+              BottomNavigationBarItem(
+                  icon: Icon(Icons.circle_outlined),
+                  activeIcon: Icon(Icons.circle_rounded),
+                  label: 'home'),
               BottomNavigationBarItem(
                   icon: Icon(Icons.circle_outlined),
                   activeIcon: Icon(Icons.circle_rounded),

@@ -2,6 +2,7 @@ import 'package:get/instance_manager.dart';
 import 'package:wtwetwgfkdfndfbnd/src/controller/auth_controller.dart';
 import 'package:wtwetwgfkdfndfbnd/src/controller/bottom_nav_controller.dart';
 import 'package:wtwetwgfkdfndfbnd/src/controller/mypage_controller.dart';
+import 'package:wtwetwgfkdfndfbnd/src/controller/upload_controller.dart';
 
 class InitBinding extends Bindings {
   @override
@@ -12,5 +13,6 @@ class InitBinding extends Bindings {
 
   static additionalBinding() {
     Get.put(MypageController(), permanent: true);
+    Get.put(UploadeController(), permanent: true);
   }
 }

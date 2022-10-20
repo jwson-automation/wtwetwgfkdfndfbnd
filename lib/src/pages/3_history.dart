@@ -14,7 +14,7 @@ class HistoryPage extends StatelessWidget {
         decoration: BoxDecoration(border: Border.all(color: Colors.white)),
         child: Center(
           child: Text(
-            '$date,일의 운동기록',
+            '$date일 의 운동기록',
             style: TextStyle(color: Colors.white),
           ),
         ),
@@ -66,10 +66,10 @@ class HistoryPage extends StatelessWidget {
                 _historyBox('2022-10-22'),
                 _historyBox('2022-10-23'),
                 _historyBox('2022-10-24'),
-                _historyBox('2022'),
-                _historyBox('2022'),
-                _historyBox('2022'),
-                _historyBox('2022'),
+                _historyBox('2022-10-25'),
+                _historyBox('2022-10-26'),
+                _historyBox('2022-10-27'),
+                _historyBox('2022-10-28'),
               ],
             ))
           ],

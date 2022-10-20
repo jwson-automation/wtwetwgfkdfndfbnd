@@ -28,7 +28,7 @@ class App extends GetView<BottomNavController> {
             ],
           ),
           bottomNavigationBar: BottomNavigationBar(
-            backgroundColor: Colors.white,
+            backgroundColor: Colors.grey[700],
             type: BottomNavigationBarType.fixed,
             showSelectedLabels: false,
             showUnselectedLabels: false,
@@ -37,24 +37,24 @@ class App extends GetView<BottomNavController> {
             onTap: controller.changeBottomNav,
             items: [
               BottomNavigationBarItem(
-                  icon: Icon(Icons.circle_outlined),
-                  activeIcon: Icon(Icons.circle_rounded),
+                  icon: Icon(Icons.list_alt_outlined),
+                  activeIcon: Icon(Icons.list_alt),
                   label: 'home'),
               BottomNavigationBarItem(
-                  icon: Icon(Icons.circle_outlined),
-                  activeIcon: Icon(Icons.circle_rounded),
+                  icon: Icon(Icons.microwave_outlined),
+                  activeIcon: Icon(Icons.microwave),
                   label: 'home'),
               BottomNavigationBarItem(
-                  icon: Icon(Icons.circle_outlined),
-                  activeIcon: Icon(Icons.circle_rounded),
+                  icon: Icon(Icons.upload_outlined),
+                  activeIcon: Icon(Icons.upload),
                   label: 'home'),
               BottomNavigationBarItem(
-                  icon: Icon(Icons.circle_outlined),
-                  activeIcon: Icon(Icons.circle_rounded),
+                  icon: Icon(Icons.history_outlined),
+                  activeIcon: Icon(Icons.history),
                   label: 'home'),
               BottomNavigationBarItem(
-                  icon: Icon(Icons.circle_outlined),
-                  activeIcon: Icon(Icons.circle_rounded),
+                  icon: Icon(Icons.person),
+                  activeIcon: Icon(Icons.person),
                   label: 'home'),
             ],
 

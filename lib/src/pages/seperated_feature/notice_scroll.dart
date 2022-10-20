@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class NoticePage extends StatelessWidget {
-  const NoticePage({super.key});
+class Notice extends StatelessWidget {
+  const Notice({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +35,7 @@ class NoticePage extends StatelessWidget {
                             // color: Colors.red,
                             )),
                     // color: Colors.blue,
-                    child: Text('오늘은 100명의 사람들이 운동을 완료했습니다.',
+                    child: Text('오늘 A씨가 벤치프레스 300kg을 들었습니 다.',
                         textAlign: TextAlign.center,
                         style: TextStyle(
                             color: Colors.white,

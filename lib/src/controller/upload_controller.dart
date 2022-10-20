@@ -18,20 +18,5 @@ class UploadeController extends GetxController {
   void uploadPost() {
     unfocusKeyboard();
     print(textEditingController.text);
-    uploadFile('null');
-  }
-
-  UploadTask uploadFile(String filename) {
-    // var f = File(file.path);
-    var ref = FirebaseStorage.instance.ref().child('users').child(filename);
-
-    final metadata = SettableMetadata(
-      contentType: 'image/jpeg',
-      // customMetadata: {'picked-file-path': file.path},
-    );
-
-    return ref.putFile(f, metadata);
-
-    //users/{uid}/profile.jpg or profile.png
   }
 }

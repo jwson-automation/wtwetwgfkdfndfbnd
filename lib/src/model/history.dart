@@ -1,21 +1,21 @@
 import 'package:wtwetwgfkdfndfbnd/src/model/ounwan_user.dart';
 
-class Post {
+class History {
   final String? id;
-  final String? thumnail;
-  final String? description;
-  final int? likeCount;
+  final String? benchpress;
+  final String? squat;
+  final int? deadlift;
   final OUser? userInfo;
   final String? uid;
   final DateTime? createdAt;
   final DateTime? updatedAt;
   final DateTime? deltedAt;
 
-  Post({
+  History({
     this.id,
-    this.thumnail,
-    this.description,
-    this.likeCount,
+    this.benchpress,
+    this.squat,
+    this.deadlift,
     this.userInfo,
     this.uid,
     this.createdAt,
@@ -23,13 +23,13 @@ class Post {
     this.deltedAt,
   });
 
-  factory Post.fromJson(String docId, Map<String, dynamic> json) {
-    return Post(
+  factory History.fromJson(String docId, Map<String, dynamic> json) {
+    return History(
       id: json['id'] == null ? '' : json['id'] as String,
-      thumnail: json['thumnail'] == null ? '' : json['thumnail'] as String,
-      description:
-          json['description'] == null ? '' : json['description'] as String,
-      likeCount: json['likeCount'] == null ? 0 : json['likeCount'] as int,
+      benchpress:
+          json['benchpress'] == null ? '' : json['benchpress'] as String,
+      squat: json['squat'] == null ? '' : json['squat'] as String,
+      deadlift: json['deadlift'] == null ? 0 : json['deadlift'] as int,
       userInfo:
           json['userInfo'] == null ? null : OUser.fromJson(json['userInfo']),
       uid: json['uid'] == null ? '' : json['uid'] as String,

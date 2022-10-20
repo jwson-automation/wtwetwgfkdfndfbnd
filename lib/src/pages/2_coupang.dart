@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -57,6 +55,46 @@ class CoupangPage extends StatelessWidget {
                 // controller: controller,
                 child: Column(
               children: [
+                Row(children: [
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(
+                      width: 150,
+                      height: 150,
+                      decoration: BoxDecoration(
+                          border: Border.all(
+                        width: 1,
+                        color: Colors.white,
+                      )),
+                      child: Image.network(
+                        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNtIBcxB3EEKKj-lZvDaFoJxED9v3fbC6-LQ&usqp=CAU',
+                        fit: BoxFit.fill,
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    child: Container(
+                      height: 150,
+                      decoration: BoxDecoration(
+                          border: Border.all(color: Colors.white)),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text('닭가슴살 미쳤닭',
+                              style: TextStyle(color: Colors.white)),
+                          SizedBox(
+                            height: 50,
+                          ),
+                          Text('가격 : 1000원',
+                              style: TextStyle(color: Colors.white)),
+                          Text('제공사 (Coupang)',
+                              style: TextStyle(color: Colors.white)),
+                        ],
+                      ),
+                    ),
+                  ),
+                ]),
                 _historyBox('닭가슴살 상품 1'),
                 _historyBox('닭가슴살 상품 2'),
                 _historyBox('프로틴 1'),

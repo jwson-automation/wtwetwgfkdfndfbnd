@@ -29,7 +29,6 @@ class AuthController extends GetxController {
     } else {
       //확장자를 어떻게 붙일지
       //이미지 피커로 가져오기 떄문에 벨리데이션은 하지 않음
-
       var task = uploadXFile(thumbnail,
           '${signupUser.uid}/profile.${thumbnail.path.split('.').last}');
       task.snapshotEvents.listen((event) async {

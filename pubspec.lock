@@ -240,6 +240,13 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  fluttertoast:
+    dependency: "direct main"
+    description:
+      name: fluttertoast
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "8.1.1"
   get:
     dependency: "direct main"
     description:
@@ -332,7 +339,7 @@ packages:
     source: hosted
     version: "2.6.2"
   intl:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: intl
       url: "https://pub.dartlang.org"

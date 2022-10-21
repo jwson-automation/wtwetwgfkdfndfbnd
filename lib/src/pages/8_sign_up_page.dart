@@ -12,6 +12,7 @@ class SignupPage extends StatefulWidget {
   State<SignupPage> createState() => _SignupPageState();
 }
 
+//이건 남녀 토글 버튼에 필요한거
 final List<bool> _selections = List.generate(2, (_) => false);
 
 TextEditingController nicknameController = TextEditingController();
@@ -161,20 +162,6 @@ class _SignupPageState extends State<SignupPage> {
               setState(() {
                 _selections[index] = !_selections[index];
               });
-              // TextField(
-              //   controller: sexController,
-              //   style: TextStyle(color: Colors.white),
-              //   decoration: InputDecoration(
-              //       enabledBorder: OutlineInputBorder(
-              //           borderRadius: BorderRadius.all(Radius.circular(1.0)),
-              //           borderSide: BorderSide(color: Colors.grey, width: 2.0)),
-              //       contentPadding: EdgeInsets.all(10),
-              //       hintStyle: TextStyle(color: Colors.white),
-              //       filled: true,
-              //       fillColor: Colors.black,
-              //       // contentPadding: EdgeInsets.all(10),
-              //       hintText: '$_hinttext'),
-              // ),
             }));
   }
 

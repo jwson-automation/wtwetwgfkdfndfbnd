@@ -1,7 +1,11 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:intl/intl.dart';
 import 'package:wtwetwgfkdfndfbnd/src/components/avatar_widget.dart';
 import 'package:wtwetwgfkdfndfbnd/src/controller/mypage_controller.dart';
+import 'package:wtwetwgfkdfndfbnd/src/model/history_user.dart';
 
 class MyPage extends GetView<MypageController> {
   const MyPage({super.key});
@@ -85,60 +89,44 @@ class MyPage extends GetView<MypageController> {
                 // 가로선
                 width: 500,
                 child: Divider(color: Colors.white, thickness: 0.5)),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Container(
-                  decoration: BoxDecoration(
-                      border: Border.all(color: Colors.white),
-                      borderRadius: BorderRadius.circular(10)),
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Text(
-                      '운동 스트릭 : 13일차',
-                      style: TextStyle(color: Colors.white, fontSize: 14),
-                    ),
-                  ),
+            Container(
+              decoration: BoxDecoration(
+                  border: Border.all(color: Colors.white),
+                  borderRadius: BorderRadius.circular(10)),
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  '운동 스트릭 : 4일차',
+                  style: TextStyle(color: Colors.white, fontSize: 14),
                 ),
-                SizedBox(
-                  width: 15,
-                ),
-                Container(
-                  decoration: BoxDecoration(
-                    border: Border.all(color: Colors.white),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Text(
-                      '라이벌 : 24명',
-                      style: TextStyle(color: Colors.white, fontSize: 14),
-                    ),
-                  ),
-                )
-              ],
+              ),
             ),
             SizedBox(
-              height: 5,
+              width: 15,
             ),
+            StreamBuilder<List<His_user>>(
+                stream: readHistory(),
+                builder: (context, snapshot) {
+                  if (snapshot.hasData) {
+                    final _hisusers = snapshot.data!;
+
+                    return Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: _hisusers.map(buildUser).toList(),
+                    );
+                  } else {
+                    return Center(child: CircularProgressIndicator());
+                  }
+                }),
             Container(
               width: 400,
-              height: 150,
               decoration: BoxDecoration(
                 border: Border.all(color: Colors.green),
               ),
-              child: Center(
-                child: Text(
-                  '잔디',
-                  style: TextStyle(color: Colors.white),
-                ),
-              ),
             ),
-            // _tabMenue(),
             SizedBox(
               height: 15,
             ),
-
             Row(
               children: [
                 Expanded(
@@ -224,4 +212,27 @@ class MyPage extends GetView<MypageController> {
       ),
     );
   }
+
+  Stream<List<His_user>> readHistory() {
+    var year = DateFormat('yy').format(DateTime.now());
+    final FirebaseAuth auth = FirebaseAuth.instance;
+    var user = auth.currentUser;
+    final uid = user!.uid;
+    return FirebaseFirestore.instance
+        .collection('history')
+        .doc('$uid')
+        .collection('$year년')
+        .snapshots()
+        .map((snapshot) =>
+            snapshot.docs.map((doc) => His_user.fromJson(doc.data())).toList());
+  }
+
+  Widget buildUser(His_user _his_user) => Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Container(
+          width: 20,
+          height: 20,
+          color: Colors.green,
+        ),
+      );
 }

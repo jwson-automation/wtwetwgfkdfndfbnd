@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:intl/intl.dart';
 import 'package:wtwetwgfkdfndfbnd/src/controller/auth_controller.dart';
 import 'package:wtwetwgfkdfndfbnd/src/model/history_user.dart';
 import 'package:wtwetwgfkdfndfbnd/src/model/ounwan_user.dart';
@@ -25,15 +26,23 @@ class UploadeController extends GetxController {
   }
 
   Future<void> uploadPost(His_user historyinfo) async {
-    var time = DateTime.now();
+    var now = DateTime.now();
+    String Year = DateFormat('yy').format(now);
+    String Month = DateFormat('MM').format(now); //format변경
+    String Day = DateFormat('dd').format(now);
+    // String formatDate = DateFormat('yy/MM/dd - HH:mm:ss').format(now); //format변경
     final User? user = auth.currentUser;
     final uid = user!.uid;
-    final docUser =
-        FirebaseFirestore.instance.collection('history').doc('$time : $uid');
+    final docUser = FirebaseFirestore.instance
+        // .doc('user')
+        .collection('history')
+        .doc('$uid')
+        .collection('$Year년')
+        .doc('$Month월 $Day일');
 
     final json = {
       'uid': uid,
-      'time': time,
+      'date': now,
       'benchpress': historyinfo.benchpress,
       'deadlift': historyinfo.deadlift,
       'squat': historyinfo.squat,
